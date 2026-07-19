@@ -1,0 +1,16 @@
+.jugador-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 2rem;
+}
+.estado-msg {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+.error {
+  color: red;
+  font-weight: bold;
+}
