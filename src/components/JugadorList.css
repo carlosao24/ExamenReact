@@ -1,16 +1,58 @@
+/* =========================================================================
+   JugadorList.css
+   -------------------------------------------------------------------------
+   Selectores asumidos (ajusta el nombre si tu JSX usa otro):
+     .jugador-list -> contenedor <div>/<ul> que envuelve las JugadorCard
+   ========================================================================= */
+
 .jugador-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.75rem;
+
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+
+  list-style: none;
+}
+
+/* Si el contenedor de la lista también recibe estados de carga/error
+   (ademas de las reglas genéricas de index.css), reforzamos aquí */
+.jugador-list.loading,
+.jugador-list.error {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  align-items: center;
   justify-content: center;
-  padding: 2rem;
+  min-height: 40vh;
 }
-.estado-msg {
-  text-align: center;
-  padding: 2rem;
-  font-size: 1.2rem;
+
+/* -------------------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .jugador-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.4rem;
+    padding: 2rem 1.5rem 3rem;
+  }
 }
-.error {
-  color: red;
-  font-weight: bold;
+
+/* Móvil */
+@media (max-width: 560px) {
+  .jugador-list {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+}
+
+/* Móvil muy pequeño: una sola columna centrada, tarjetas más anchas */
+@media (max-width: 380px) {
+  .jugador-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
